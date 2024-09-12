@@ -5,34 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UGF Art Gallery</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
+    <div class="page">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <a href="ufw.html" class="nav-link">Home</a>
+            <a href="gallery.html" class="nav-link active">Art Gallery</a>
+            <a href="discord.html" class="nav-link">Join Discord</a>
+        </nav>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <a href="ufw.html" class="nav-link">Home</a>
-        <a href="gallery.html" class="nav-link active">Art Gallery</a>
-        <a href="discord.html" class="nav-link">Join Discord</a>
-    </nav>
+        <!-- Art Gallery Section -->
+        <section class="gallery-section">
+            <div class="gallery-container">
+                <!-- Left and Right Fade Effect -->
+                <div class="fade fade-left"></div>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/1920x1920" alt="Logo 1">
+                        <p>Logo 1</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/1920x1920" alt="Logo 2">
+                        <p>Logo 2</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/1920x1920" alt="Logo 3">
+                        <p>Logo 3</p>
+                    </div>
+                    <!-- Add more gallery items as needed -->
+                </div>
+                <div class="fade fade-right"></div>
+            </div>
+        </section>
 
-    <!-- Art Gallery Content -->
-    <div class="gallery-content">
-        <h1>UGF Logos Art Gallery</h1>
-        <div class="gallery-grid">
-            <!-- 8x8 Grid with Placeholder Boxes -->
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/1920" alt="Placeholder Image">
-                <p>Placeholder Name 1</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/1920" alt="Placeholder Image">
-                <p>Placeholder Name 2</p>
-            </div>
-            <!-- Repeat for other placeholder items -->
-        </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 UGF. All rights reserved.</p>
+        </footer>
     </div>
-
-    <!-- JavaScript for smooth transitions -->
-    <script src="script.js"></script>
 </body>
 </html>
