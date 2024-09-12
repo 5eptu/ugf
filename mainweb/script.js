@@ -12,14 +12,4 @@ document.addEventListener("DOMContentLoaded", function() {
             const targetPage = this.getAttribute('href');
 
             // Add slide-out effect and activate decoding transition
-            page.classList.remove('slide-in');
-            page.classList.add('slide-out');
-            overlay.classList.add('active');
-
-            // Wait for the transition to finish before navigating to the new page
-            setTimeout(() => {
-                window.location.href = targetPage;
-            }, 1000); // Match the delay with the CSS transition duration
-        });
-    });
-});
+            page.classList.remove('
