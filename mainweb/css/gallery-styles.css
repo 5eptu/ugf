@@ -1,23 +1,38 @@
-/* Gallery Container */
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+}
+
+h1.glitch {
+    font-size: 3rem;
+    color: white;
+    position: relative;
+}
+
+/* Gallery Styles */
 .gallery-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow-x: scroll;
+    overflow-x: auto;
     padding: 20px;
-    scroll-behavior: smooth;
+    max-width: 100%;
+    position: relative;
 }
 
-/* Gallery Grid */
 .gallery-grid {
     display: flex;
     gap: 20px;
-    justify-content: center;
-    align-items: center;
 }
 
-/* Gallery Item */
 .gallery-item {
     flex: 0 0 auto;
     width: 150px;
@@ -25,32 +40,32 @@
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.gallery-item:hover {
-    transform: scale(1.1);
-    border: 2px solid red;
-}
-
 .gallery-item img {
     width: 100%;
     height: auto;
 }
 
-/* Fade effect for left and right scrolling */
+.gallery-item:hover {
+    transform: scale(1.1);
+    border: 2px solid red;
+}
+
+/* Horizontal scroll fade */
 .fade-left, .fade-right {
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     width: 50px;
+    z-index: 2;
     pointer-events: none;
-    z-index: 1000;
 }
 
 .fade-left {
     left: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), transparent);
 }
 
 .fade-right {
     right: 0;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.8), transparent);
+    background: linear-gradient(to left, rgba(0, 0, 0, 1), transparent);
 }
