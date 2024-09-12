@@ -1,0 +1,56 @@
+/* Gallery Container */
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-x: scroll;
+    padding: 20px;
+    scroll-behavior: smooth;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Gallery Item */
+.gallery-item {
+    flex: 0 0 auto;
+    width: 150px;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.1);
+    border: 2px solid red;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+}
+
+/* Fade effect for left and right scrolling */
+.fade-left, .fade-right {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.fade-left {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.fade-right {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.8), transparent);
+}
