@@ -1,20 +1,25 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Fade in effect on page load
-    document.body.classList.add('fade-in');
+    const page = document.querySelector('.page');
+    const overlay = document.createElement('div');
+    overlay.classList.add('transition-overlay');
+    overlay.innerHTML = `<span class="transition-text">Decoding...</span>`;
+    document.body.appendChild(overlay);
 
-    // Add smooth transition to all navigation links
+    // Smooth transition effect for navigation
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault(); // Prevent default link behavior
             const targetPage = this.getAttribute('href');
 
-            // Add fade-out effect when the link is clicked
-            document.body.classList.add('fade-out');
+            // Add slide-out effect and activate decoding transition
+            page.classList.remove('slide-in');
+            page.classList.add('slide-out');
+            overlay.classList.add('active');
 
-            // Wait for the fade-out transition to finish before navigating to the new page
+            // Wait for the transition to finish before navigating to the new page
             setTimeout(() => {
                 window.location.href = targetPage;
-            }, 600); // Match the delay with the CSS transition duration
+            }, 1000); // Match the delay with the CSS transition duration
         });
     });
 });
