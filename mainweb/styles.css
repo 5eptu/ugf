@@ -9,6 +9,9 @@ body {
     font-family: 'Roboto Condensed', sans-serif;
     color: #ffffff;
     background-color: #000000;
+    background-image: url('https://images7.alphacoders.com/787/thumb-1920-787307.jpg');
+    background-size: cover;
+    background-position: center;
     overflow: hidden;
     opacity: 1;
     transition: opacity 0.6s ease-in-out;
@@ -25,4 +28,106 @@ body.fade-out {
     transition: opacity 0.6s ease-in-out;
 }
 
-/* Rest of the CSS code remains unchanged */
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.nav-link {
+    color: #ffffff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #ff0000;
+}
+
+.nav-link.active {
+    color: #ff0000;
+}
+
+/* Content Styles */
+.title-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.title-section h1 {
+    font-size: 48px;
+    color: #ff0000;
+}
+
+/* Blog Section */
+.blog-posts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.blog-post {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border: 2px solid #ff0000;
+    width: 300px;
+}
+
+.blog-post h2 {
+    color: #ff0000;
+    font-size: 24px;
+}
+
+.blog-post p {
+    color: #ffffff;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 40px;
+}
+
+.gallery-item img {
+    width: 100%;
+    border: 2px solid #ff0000;
+}
+
+.gallery-item p {
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Discord Link */
+.discord-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 24px;
+    background-color: #ff0000;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.discord-link:hover {
+    background-color: #ffffff;
+    color: #ff0000;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
