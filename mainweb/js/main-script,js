@@ -1,0 +1,16 @@
+// Parallax Effect
+document.addEventListener('mousemove', (e) => {
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+    document.querySelector('.interactive-section').style.transform = `translate(-${x * 10}px, -${y * 10}px)`;
+});
+
+// Background Animation
+function animateBackground() {
+    let hue = 0;
+    setInterval(() => {
+        hue = (hue + 1) % 360;
+        document.body.style.backgroundColor = `hsl(${hue}, 50%, 10%)`;
+    }, 100);
+}
+animateBackground();
