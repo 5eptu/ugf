@@ -63,37 +63,47 @@ h1.glitch {
     scroll-behavior: smooth;
     padding-bottom: 20px;
     padding-left: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Gallery Item */
 .gallery-item {
     flex: 0 0 auto;
-    width: 200px; /* Adjust size of the boxes */
+    width: 1920px; /* Set width to 1920px */
+    height: 1920px; /* Set height to 1920px */
     text-align: center;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 2px solid transparent;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1); /* Background for contrast */
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
-    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 20px; /* Adjusted to give spacing between items */
 }
 
 .gallery-item img {
-    width: 100%;
-    height: 150px; /* Fixed height to maintain proportions */
-    object-fit: cover;
+    width: auto;
+    height: 80%; /* Ensure image fits within the box */
+    object-fit: contain; /* Maintain aspect ratio */
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
 
 .gallery-item p {
     margin: 10px 0 0;
-    font-size: 1rem;
+    font-size: 1.5rem; /* Increased font size */
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Improved readability */
 }
 
 /* Hover Effect */
 .gallery-item:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     border: 2px solid red;
     box-shadow: 0 0 25px rgba(255, 0, 0, 1);
 }
