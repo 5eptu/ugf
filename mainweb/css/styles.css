@@ -12,6 +12,7 @@ h1 {
     font-size: 4rem;
     text-align: center;
     color: white;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
 }
 
 p {
@@ -25,10 +26,13 @@ p {
     color: white;
     text-decoration: none;
     margin: 0 15px;
+    font-size: 1.2rem;
+    transition: color 0.3s;
 }
 
 .nav-link:hover {
     color: red;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
 }
 
 /* Header and content */
@@ -36,6 +40,7 @@ header {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
     text-align: center;
+    border-bottom: 2px solid red;
 }
 
 .content {
@@ -45,11 +50,13 @@ header {
     margin: 0 auto;
 }
 
+/* Glitch effect */
 .glitch {
     font-family: 'Courier New', Courier, monospace;
     font-size: 4rem;
     color: white;
     position: relative;
+    overflow: hidden;
 }
 
 .glitch:before, .glitch:after {
