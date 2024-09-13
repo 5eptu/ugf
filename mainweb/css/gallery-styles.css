@@ -10,39 +10,44 @@ body {
 header {
     padding: 20px;
     text-align: center;
+    border-bottom: 2px solid red;
 }
 
 h1.glitch {
     font-size: 3rem;
     color: white;
     position: relative;
+    overflow: hidden;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
 }
 
 /* Gallery Styles */
 .gallery-container {
-    display: flex;
-    justify-content: center;
-    overflow-x: auto;
+    position: relative;
     padding: 20px;
     max-width: 100%;
-    position: relative;
 }
 
 .gallery-grid {
     display: flex;
     gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
 }
 
 .gallery-item {
     flex: 0 0 auto;
-    width: 150px;
+    width: 200px;
     text-align: center;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    position: relative;
+    transition: transform 0.3s ease, border 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .gallery-item img {
     width: 100%;
     height: auto;
+    border-radius: 10px;
 }
 
 .gallery-item:hover {
@@ -62,10 +67,10 @@ h1.glitch {
 
 .fade-left {
     left: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 1), transparent);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
 }
 
 .fade-right {
     right: 0;
-    background: linear-gradient(to left, rgba(0, 0, 0, 1), transparent);
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.8), transparent);
 }
