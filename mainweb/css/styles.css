@@ -3,10 +3,11 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: url('https://wallpapers.com/images/hd/red-space-1920-x-1200-background-0sy57akyjme22bhh.jpg') no-repeat center center fixed;
+    background: url('../images/black-hole-background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: white;
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 /* Header */
@@ -15,6 +16,7 @@ header {
     padding: 20px;
     text-align: center;
     border-bottom: 2px solid rgba(255, 0, 0, 0.8);
+    position: relative;
 }
 
 /* Title */
@@ -25,32 +27,11 @@ h1.glitch {
     position: relative;
     overflow: hidden;
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
-}
-
-.glitch:before, .glitch:after {
-    content: 'Official UGF Webpage';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    color: red;
-    z-index: -1;
-    animation: glitch 1s infinite;
-}
-
-.glitch:before {
-    left: 2px;
-    text-shadow: -2px 0 blue;
-}
-
-.glitch:after {
-    left: -2px;
-    text-shadow: -2px 0 red;
+    animation: glitch 2s infinite;
 }
 
 /* Navigation Links */
-nav {
+.nav {
     margin: 20px 0;
 }
 
@@ -95,8 +76,19 @@ nav {
     position: relative;
 }
 
-/* Neon Border */
-.content:before {
+/* Interactive Section */
+.interactive-section {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+/* Neon Borders */
+.interactive-section::before {
     content: '';
     position: absolute;
     top: 0;
@@ -104,11 +96,10 @@ nav {
     width: 100%;
     height: 100%;
     border: 5px solid rgba(255, 0, 0, 0.8);
-    border-radius: 10px;
-    pointer-events: none;
-    z-index: -1;
+    border-radius: 15px;
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
     animation: pulse 1.5s infinite ease-in-out;
+    pointer-events: none;
 }
 
 @keyframes pulse {
