@@ -1,16 +1,11 @@
-// Parallax Effect
-document.addEventListener('mousemove', (e) => {
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-    document.querySelector('.interactive-section').style.transform = `translate(-${x * 10}px, -${y * 10}px)`;
+// Function to handle page transition effect
+document.addEventListener('click', (event) => {
+    if (event.target.closest('.nav-button')) {
+        document.body.classList.add('transition');
+        setTimeout(() => {
+            window.location.href = event.target.closest('.nav-button').href;
+        }, 500); // Delay to match transition duration
+    }
 });
 
-// Background Animation
-function animateBackground() {
-    let hue = 0;
-    setInterval(() => {
-        hue = (hue + 1) % 360;
-        document.body.style.backgroundColor = `hsl(${hue}, 50%, 10%)`;
-    }, 100);
-}
-animateBackground();
+// Optionally, you can add more interactive elements or animations
