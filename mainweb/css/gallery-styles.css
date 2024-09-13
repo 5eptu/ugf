@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: url('../images/futuristic-background.jpg') no-repeat center center fixed;
+    background: url('path/to/your/background-image.jpg') no-repeat center center fixed;
     background-size: cover;
     color: white;
 }
@@ -51,7 +51,7 @@ h1.glitch {
 .gallery-container {
     position: relative;
     padding: 20px;
-    margin-top: 60px; /* Adjusted to position gallery properly */
+    margin-top: 60px;
     overflow: hidden;
 }
 
@@ -70,35 +70,35 @@ h1.glitch {
 /* Gallery Item */
 .gallery-item {
     flex: 0 0 auto;
-    width: 1920px; /* Set width to 1920px */
-    height: 1920px; /* Set height to 1920px */
+    width: 1920px;
+    height: 1920px;
     text-align: center;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 2px solid transparent;
-    background: rgba(255, 255, 255, 0.1); /* Background for contrast */
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 0 20px; /* Adjusted to give spacing between items */
+    margin: 0 20px;
 }
 
 .gallery-item img {
     width: auto;
-    height: 80%; /* Ensure image fits within the box */
-    object-fit: contain; /* Maintain aspect ratio */
+    height: 80%;
+    object-fit: contain;
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
 
 .gallery-item p {
     margin: 10px 0 0;
-    font-size: 1.5rem; /* Increased font size */
+    font-size: 1.5rem;
     color: white;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Improved readability */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
 }
 
 /* Hover Effect */
