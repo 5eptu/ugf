@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website with Background Music and Controls</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://static.vecteezy.com/system/resources/previews/005/178/921/original/black-and-red-abstract-background-color-future-digital-sport-background-free-vector.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .audio-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .audio-controls button, .audio-controls input {
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .audio-controls input[type="range"] {
+            width: 100px;
+        }
+
+        .audio-controls button:hover, .audio-controls input:hover {
+            background-color: #ff6666;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Audio Controls -->
+    <div class="audio-controls">
+        <button id="playPauseBtn">Pause</button>
+        <input id="volumeControl" type="range" min="0" max="1" step="0.1" value="1">
+    </div>
+
+    <audio id="backgroundMusic" loop autoplay>
+        <source src="https://www.youtube.com/watch?v=lwYWMHVwYrs" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Audio Element
+        const audio = document.getElementById('backgroundMusic');
+
+        // Play/Pause Button
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        playPauseBtn.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = 'Pause';
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = 'Play';
+            }
+        });
+
+        // Volume Control
+        const volumeControl = document.getElementById('volumeControl');
+        volumeControl.addEventListener('input', function() {
+            audio.volume = volumeControl.value;
+        });
+
+        // Hide YouTube player and ensure audio only
+        function hideYouTubePlayer() {
+            const youtubeIframe = document.querySelector('iframe');
+            if (youtubeIframe) {
+                youtubeIframe.style.display = 'none';
+            }
+        }
+
+        // Check periodically to hide YouTube player
+        setInterval(hideYouTubePlayer, 1000);
+    </script>
+</body>
+</html>
