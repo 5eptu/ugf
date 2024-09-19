@@ -3,36 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UGF Art Gallery</title>
-    <link rel="stylesheet" href="css/gallery-styles.css">
+    <title>UGF Gallery</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-image: url('https://static.vecteezy.com/system/resources/previews/005/178/921/original/black-and-red-abstract-background-color-future-digital-sport-background-free-vector.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        .gallery-section {
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .logo-grid img {
+            width: 100%;
+            max-width: 250px;
+            border: 2px solid red;
+            background: rgba(255, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .logo-grid img:hover {
+            transform: scale(1.1);
+        }
+
+        audio {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 300px;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background-color: rgba(255, 0, 0, 0.8);
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1 class="glitch">UGF Art Gallery</h1>
-        <nav class="gallery-nav">
-            <a href="ufw.html" class="nav-button">Home</a>
-            <a href="https://discord.com/invite/ugfontop" class="nav-button">Discord</a>
-        </nav>
+        <h1>United Gamer Federation Gallery</h1>
     </header>
-    
-    <main class="gallery-container">
-        <div class="gallery-grid">
-            <!-- Gallery items with placeholder images and names -->
-            <div class="gallery-item">
-                <img src="images/placeholder1.jpg" alt="Logo 1">
-                <p>Logo 1</p>
+
+    <main>
+        <!-- United Federation Section -->
+        <section class="gallery-section">
+            <h2 class="section-title">United Federation</h2>
+            <div class="logo-grid">
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/United%20Gamer%20Federation%20(A).png" alt="United Federation Parent">
+                    <p>United Federation (Parent)</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/Eradicator2.png" alt="United Federation Eradication Unit">
+                    <p>United Federation Eradication Unit</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/unitedgamerfederationfortificationunit.png" alt="United Federation Fortification Unit">
+                    <p>United Federation Fortification Unit</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/United%20Federation%20Incendiary%20Division.png" alt="United Federation Incendiary Division">
+                    <p>United Federation Incendiary Division</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/ugfmarinecorps.png" alt="United Federation Marine Corps">
+                    <p>United Federation Marine Corps</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/unitedgamerfederationnavy.png" alt="United Federation Navy">
+                    <p>United Federation Navy</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/synthintelligenceagency.png" alt="Synth Intelligence Agency">
+                    <p>Synth Intelligence Agency</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/Void%20Evasion%20Special%20Forces.png" alt="Void Special Forces">
+                    <p>Void Evasion Special Forces</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/ugfresearchanddevelopment.png" alt="Advanced Research & Development">
+                    <p>Advanced Research & Development</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/cos-22.png" alt="Task Force Cos-22">
+                    <p>Task Force Cos-22</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/rift-404.png" alt="Task Force Rift-404">
+                    <p>Task Force Rift-404</p>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="images/placeholder2.jpg" alt="Logo 2">
-                <p>Logo 2</p>
+        </section>
+
+        <!-- Corporate Section -->
+        <section class="gallery-section">
+            <h2 class="section-title">Corporate</h2>
+            <div class="logo-grid">
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/Rythen%20Arms.png" alt="Rythen Arms">
+                    <p>Rythen Arms</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/Cesco%20Music%20Group.png" alt="Cesco Music Group">
+                    <p>Cesco Music Group</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/Xtract%20Services%20(Q).png" alt="Xtract Services">
+                    <p>Xtract Services</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/InkTech%20Quote.png" alt="InkTech">
+                    <p>InkTech</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/Elgius.png" alt="Elgius Inc.">
+                    <p>Elgius Inc.</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/Particle%20Corporation.png" alt="CyberWorks">
+                    <p>CyberWorks</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/Swarm%20Car%20Company.png" alt="Swarm Car Company">
+                    <p>Swarm Car Company</p>
+                </div>
             </div>
-            <!-- Add more items as needed -->
-        </div>
+        </section>
+
+        <!-- Artificial Intelligence Section -->
+        <section class="gallery-section">
+            <h2 class="section-title">Artificial Intelligence</h2>
+            <div class="logo-grid">
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/CoPilotV1.png" alt="COPILOT">
+                    <p>COPILOT</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/GlyphAI%20(L).png" alt="Glyph AI">
+                    <p>Glyph AI</p>
+                </div>
+                <div>
+                    <img src="https://sd75-my.sharepoint.com/personal/1345298_learn75_ca/Documents/Desktop/UGF%20Graphic%20Design/Jetstream.png" alt="JetStream">
+                    <p>JetStream</p>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <div class="fade-left"></div>
-    <div class="fade-right"></div>
-
-    <script src="js/gallery-script.js"></script>
+    <footer>
+        <audio controls>
+            <source src="your-audio-file.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </footer>
 </body>
 </html>
