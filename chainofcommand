@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chain of Command</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        .command-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        .high-commander, .interim-commander {
+            width: 200px;
+            padding: 20px;
+            margin: 10px;
+            background: linear-gradient(145deg, #FFD700, #FFF8DC); /* Golden Gradient */
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .interim-commander {
+            background: linear-gradient(145deg, #ffcc33, #ffd966); /* Saturated Gold */
+            opacity: 0.5; /* Placeholder style */
+        }
+
+        .commander-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 3px solid #fff;
+        }
+
+        .commander-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .commander-rank {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .section-title {
+            width: 100%;
+            font-size: 24px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .empty {
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Chain of Command</h1>
+
+
+<div class="section-title">13 High Commanders</div>
+    <div class="command-container">
+
+        <div class="high-commander">
+            <img src="image1.jpg" alt="High Commander 1" class="commander-image">
+            <div class="commander-name">Septu</div>
+            <div class="commander-rank">Rank: High Commander</div>
+        </div>
+
+        <div class="high-commander">
+            <img src="image2.jpg" alt="High Commander 2" class="commander-image">
+            <div class="commander-name">Demone</div>
+            <div class="commander-rank">Rank: High Commander</div>
+        </div>
+
+        <div class="high-commander">
+            <img src="image2.jpg" alt="High Commander 2" class="commander-image">
+            <div class="commander-name">Mondo</div>
+            <div class="commander-rank">Rank: High Commander</div>
+        </div>
+
+        <div class="high-commander">
+            <img src="image2.jpg" alt="High Commander 2" class="commander-image">
+            <div class="commander-name">Dark Matter</div>
+            <div class="commander-rank">Rank: High Commander</div>
+        </div>
+
+        <div class="high-commander">
+            <img src="image2.jpg" alt="High Commander 2" class="commander-image">
+            <div class="commander-name">Crusader</div>
+            <div class="commander-rank">Rank: High Commander</div>
+        </div>
+
+        <div class="high-commander">
+            <img src="image2.jpg" alt="High Commander 2" class="commander-image">
+            <div class="commander-name">Dawaekid123</div>
+            <div class="commander-rank">Rank: High Commander</div>
+        </div>
+
+        <div class="high-commander">
+            <img src="image2.jpg" alt="High Commander 2" class="commander-image">
+            <div class="commander-name">JMan</div>
+            <div class="commander-rank">Rank: High Commander</div>
+        </div>
+
+        <div class="high-commander">
+            <img src="image2.jpg" alt="High Commander 2" class="commander-image">
+            <div class="commander-name">OdysseySynth</div>
+            <div class="commander-rank">Rank: High Commander</div>
+        </div>
+
+        <div class="high-commander">
+            <img src="image2.jpg" alt="High Commander 2" class="commander-image">
+            <div class="commander-name">SnaggingLlama92</div>
+            <div class="commander-rank">Rank: High Commander</div>
+        </div>
+
+        <div class="high-commander">
+            <img src="image2.jpg" alt="High Commander 2" class="commander-image">
+            <div class="commander-name">Berry</div>
+            <div class="commander-rank">Rank: High Commander</div>
+        </div>
+
+        <div class="high-commander">
+            <img src="image2.jpg" alt="High Commander 2" class="commander-image">
+            <div class="commander-name">Marine</div>
+            <div class="commander-rank">Rank: High Commander</div>
+        </div>
+
+        <div class="high-commander">
+            <img src="image2.jpg" alt="High Commander 2" class="commander-image">
+            <div class="commander-name">Kaizer</div>
+            <div class="commander-rank">Rank: High Commander</div>
+        </div>
+
+        <!-- Add more High Commander blocks (Total 13) -->
+        <!-- ... -->
+
+    </div>
+
+    <div class="section-title">13 Interim High Command (Vacant)</div>
+    <div class="command-container">
+
+        <div class="interim-commander">
+            <div class="commander-name empty">Vacant</div>
+        </div>
+
+        <div class="interim-commander">
+            <div class="commander-name empty">Vacant</div>
+        </div>
+
+        <div class="interim-commander">
+            <div class="commander-name empty">Vacant</div>
+        </div>
+
+        <div class="interim-commander">
+            <div class="commander-name empty">Vacant</div>
+        </div>
+
+        <div class="interim-commander">
+            <div class="commander-name empty">Vacant</div>
+        </div>
+
+        <div class="interim-commander">
+            <div class="commander-name empty">Vacant</div>
+        </div>
+
+        <div class="interim-commander">
+            <div class="commander-name empty">Vacant</div>
+        </div>
+
+        <div class="interim-commander">
+            <div class="commander-name empty">Vacant</div>
+        </div>
+
+        <div class="interim-commander">
+            <div class="commander-name empty">Vacant</div>
+        </div>
+
+        <div class="interim-commander">
+            <div class="commander-name empty">Vacant</div>
+        </div>
+
+        <div class="interim-commander">
+            <div class="commander-name empty">Vacant</div>
+        </div>
+
+        <div class="interim-commander">
+            <div class="commander-name empty">Vacant</div>
+        </div>
+
+        <div class="interim-commander">
+            <div class="commander-name empty">Vacant</div>
+        </div>
+
+        <div class="interim-commander">
+            <div class="commander-name empty">Vacant</div>
+        </div>
+
+        <div class="interim-commander">
+            <div class="commander-name empty">Vacant</div>
+        </div>
+
+        <!-- Add more Interim Commander blocks (Total 13) -->
+        <!-- ... -->
+
+    </div>
+
+</body>
+</html>
