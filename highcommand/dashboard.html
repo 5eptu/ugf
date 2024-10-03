@@ -243,12 +243,12 @@
                     const newStatus = prompt('Enter new status (in-progress, failed, completed):', missionStatus) || missionStatus;
 
                     // Update the card with new values
-                    missionName = newMissionName;
-                    missionLocation = newMissionLocation;
-                    missionCommander = newMissionCommander;
-                    missionDuration = newMissionDuration;
-                    missionObjectives = newMissionObjectives;
-                    missionDetails = newMissionDetails;
+                    if (newMissionName) missionName = newMissionName;
+                    if (newMissionLocation) missionLocation = newMissionLocation;
+                    if (newMissionCommander) missionCommander = newMissionCommander;
+                    if (newMissionDuration) missionDuration = newMissionDuration;
+                    if (newMissionObjectives) missionObjectives = newMissionObjectives;
+                    if (newMissionDetails) missionDetails = newMissionDetails;
 
                     // Update the card elements
                     card.querySelector('h3').innerText = missionName;
@@ -261,6 +261,7 @@
                     // Update status if changed
                     if (['in-progress', 'failed', 'completed'].includes(newStatus)) {
                         card.classList.remove(missionStatus);
+                        missionStatus = newStatus; // Update the status variable
                         card.classList.add(newStatus);
                         card.querySelector('p:last-child').innerText = `Status: ${capitalizeFirstLetter(newStatus)}`;
                     }
@@ -274,3 +275,4 @@
     </script>
 </body>
 </html>
+
