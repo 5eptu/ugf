@@ -70,7 +70,7 @@
 
         .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
@@ -85,6 +85,9 @@
             position: relative;
             overflow: hidden;
             text-align: left;
+            max-height: 400px; /* Fixed height for cards */
+            display: flex;
+            flex-direction: column;
         }
 
         .card h3 {
@@ -94,6 +97,14 @@
         .card p {
             margin: 5px 0;
             font-size: 0.9em;
+        }
+
+        .card textarea {
+            margin: 5px 0;
+            width: 100%;
+            height: 50px;
+            resize: none;
+            overflow-y: auto; /* Allow scrolling */
         }
 
         .in-progress {
@@ -127,6 +138,16 @@
                 box-shadow: 0 0 20px rgba(255, 76, 76, 0.7), 0 0 30px rgba(255, 76, 76, 0.5);
             }
         }
+
+        .edit-container {
+            display: flex;
+            flex-direction: column;
+            margin-top: auto;
+        }
+
+        .edit-container button {
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -143,6 +164,8 @@
         <h2>Add New Mission</h2>
         <input type="text" id="missionName" placeholder="Mission Name" required>
         <textarea id="missionDetails" placeholder="Mission Details" rows="3"></textarea>
+        <input type="text" id="missionLocation" placeholder="Mission Location">
+        <input type="text" id="missionCommander" placeholder="Commander Name">
         <select id="missionStatus">
             <option value="in-progress">In Progress</option>
             <option value="failed">Failed</option>
@@ -162,6 +185,8 @@
         addMissionBtn.addEventListener('click', function() {
             const missionName = document.getElementById('missionName').value;
             const missionDetails = document.getElementById('missionDetails').value;
+            const missionLocation = document.getElementById('missionLocation').value;
+            const missionCommander = document.getElementById('missionCommander').value;
             const missionStatus = document.getElementById('missionStatus').value;
 
             if (missionName) {
@@ -169,9 +194,14 @@
                 card.className = `card ${missionStatus}`;
                 card.innerHTML = `
                     <h3>${missionName}</h3>
-                    <p><strong>Details:</strong> ${missionDetails}</p>
+                    <p><strong>Location:</strong> ${missionLocation}</p>
+                    <p><strong>Commander:</strong> ${missionCommander}</p>
+                    <p><strong>Details:</strong></p>
+                    <textarea readonly>${missionDetails}</textarea>
                     <p>Status: ${capitalizeFirstLetter(missionStatus)}</p>
-                    <button class="editBtn">Edit</button>
+                    <div class="edit-container">
+                        <button class="editBtn">Edit</button>
+                    </div>
                 `;
 
                 missionList.appendChild(card);
@@ -179,29 +209,37 @@
                 // Clear input fields
                 document.getElementById('missionName').value = '';
                 document.getElementById('missionDetails').value = '';
+                document.getElementById('missionLocation').value = '';
+                document.getElementById('missionCommander').value = '';
                 document.getElementById('missionStatus').value = 'in-progress';
 
                 // Add edit functionality
                 const editBtn = card.querySelector('.editBtn');
                 editBtn.addEventListener('click', function() {
                     const newMissionName = prompt('Enter new mission name:', missionName);
+                    const newMissionLocation = prompt('Enter new mission location:', missionLocation);
+                    const newMissionCommander = prompt('Enter new commander name:', missionCommander);
                     const newMissionDetails = prompt('Enter new mission details:', missionDetails);
                     const newStatus = prompt('Enter new status (in-progress, failed, completed):', missionStatus);
+                    
                     if (newMissionName) {
                         card.querySelector('h3').innerText = newMissionName;
                     }
-                    if (newMissionDetails) {
-                        card.querySelector('p:nth-of-type(1)').innerHTML = `<strong>Details:</strong> ${newMissionDetails}`;
+                    if (newMissionLocation) {
+                        card.querySelector('p:nth-of-type(1)').innerHTML = `<strong>Location:</strong> ${newMissionLocation}`;
                     }
-                    if (newStatus && ['in-progress', 'failed', 'completed'].includes(newStatus)) {
-                        card.className = `card ${newStatus}`;
-                        card.querySelector('p:last-of-type').innerHTML = `Status: ${capitalizeFirstLetter(newStatus)}`;
-                    } else {
-                        alert('Invalid status. Please enter a valid status.');
+                    if (newMissionCommander) {
+                        card.querySelector('p:nth-of-type(2)').innerHTML = `<strong>Commander:</strong> ${newMissionCommander}`;
+                    }
+                    if (newMissionDetails) {
+                        card.querySelector('textarea').innerText = newMissionDetails;
+                    }
+                    if (newStatus) {
+                        card.classList.remove(missionStatus);
+                        card.classList.add(newStatus);
+                        card.querySelector('p:last-child').innerText = `Status: ${capitalizeFirstLetter(newStatus)}`;
                     }
                 });
-            } else {
-                alert('Please enter a mission name.');
             }
         });
 
