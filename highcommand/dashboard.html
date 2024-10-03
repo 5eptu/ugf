@@ -9,20 +9,63 @@
         body {
             font-family: 'Orbitron', sans-serif;
             background-color: #121212;
-            color: #ff4c4c;
+            color: #ffffff;
             margin: 0;
             padding: 20px;
         }
 
         h1 {
             text-align: center;
-            color: white;
+            color: #ff4c4c;
+            margin-bottom: 20px;
         }
 
         .logo {
             display: block;
             margin: 0 auto 20px;
             width: 150px; /* Adjust size as needed */
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .mission-description {
+            font-size: 1.1em;
+            color: #ffcc00; /* Yellow for description */
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            margin: 20px auto;
+            text-align: center;
+            background-color: #2b2b2b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(255, 76, 76, 0.5);
+        }
+
+        input[type="text"], select {
+            padding: 10px;
+            margin: 10px 0;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff4c4c;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #d93d3d; /* Darker red on hover */
         }
 
         .dashboard-grid {
@@ -39,6 +82,7 @@
             box-shadow: 0 0 5px rgba(255, 76, 76, 0.5);
             transition: transform 0.2s, background-color 0.2s;
             color: white;
+            position: relative;
         }
 
         .card:hover {
@@ -77,45 +121,21 @@
                 box-shadow: 0 0 20px rgba(255, 76, 76, 0.7), 0 0 30px rgba(255, 76, 76, 0.5);
             }
         }
-
-        .form-container {
-            margin: 20px auto;
-            text-align: center;
-            background-color: #2b2b2b;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 5px rgba(255, 76, 76, 0.5);
-        }
-
-        input[type="text"], select {
-            padding: 10px;
-            margin: 10px 0;
-            width: 80%;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #ff4c4c;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #d93d3d; /* Darker red on hover */
-        }
     </style>
 </head>
 <body>
     <h1>High Command Dashboard</h1>
     <img src="https://i.imgur.com/Gn60P1H.png" alt="United Federation Logo" class="logo">
 
+    <div class="dashboard-header">
+        <p class="mission-description">
+            Welcome, High Command! Here you can manage ongoing missions and monitor their statuses.
+        </p>
+    </div>
+
     <div class="form-container">
         <h2>Add New Mission</h2>
-        <input type="text" id="missionName" placeholder="Mission Name">
+        <input type="text" id="missionName" placeholder="Mission Name" required>
         <select id="missionStatus">
             <option value="in-progress">In Progress</option>
             <option value="failed">Failed</option>
@@ -154,7 +174,11 @@
                 // Add edit functionality
                 const editBtn = card.querySelector('.editBtn');
                 editBtn.addEventListener('click', function() {
+                    const newMissionName = prompt('Enter new mission name:', missionName);
                     const newStatus = prompt('Enter new status (in-progress, failed, completed):', missionStatus);
+                    if (newMissionName) {
+                        card.querySelector('h3').innerText = newMissionName;
+                    }
                     if (newStatus && ['in-progress', 'failed', 'completed'].includes(newStatus)) {
                         card.className = `card ${newStatus}`;
                         card.querySelector('p').innerHTML = `Status: ${capitalizeFirstLetter(newStatus)}`;
