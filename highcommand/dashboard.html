@@ -44,12 +44,13 @@
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 0 5px rgba(255, 76, 76, 0.5);
+            max-width: 600px; /* Limit width for better appearance */
         }
 
         input[type="text"], select, textarea {
             padding: 8px;
             margin: 5px 0;
-            width: 90%;
+            width: 100%; /* Full width */
             border: 1px solid #ccc;
             border-radius: 5px;
         }
@@ -163,9 +164,11 @@
     <div class="form-container">
         <h2>Add New Mission</h2>
         <input type="text" id="missionName" placeholder="Mission Name" required>
-        <textarea id="missionDetails" placeholder="Mission Details" rows="3"></textarea>
+        <textarea id="missionDetails" placeholder="Mission Details" rows="2"></textarea>
         <input type="text" id="missionLocation" placeholder="Mission Location">
         <input type="text" id="missionCommander" placeholder="Commander Name">
+        <input type="text" id="missionDuration" placeholder="Estimated Duration (hours)">
+        <input type="text" id="missionObjectives" placeholder="Mission Objectives (separate with commas)">
         <select id="missionStatus">
             <option value="in-progress">In Progress</option>
             <option value="failed">Failed</option>
@@ -187,6 +190,8 @@
             const missionDetails = document.getElementById('missionDetails').value;
             const missionLocation = document.getElementById('missionLocation').value;
             const missionCommander = document.getElementById('missionCommander').value;
+            const missionDuration = document.getElementById('missionDuration').value;
+            const missionObjectives = document.getElementById('missionObjectives').value;
             const missionStatus = document.getElementById('missionStatus').value;
 
             if (missionName) {
@@ -196,6 +201,8 @@
                     <h3>${missionName}</h3>
                     <p><strong>Location:</strong> ${missionLocation}</p>
                     <p><strong>Commander:</strong> ${missionCommander}</p>
+                    <p><strong>Duration:</strong> ${missionDuration} hours</p>
+                    <p><strong>Objectives:</strong> ${missionObjectives}</p>
                     <p><strong>Details:</strong></p>
                     <textarea readonly>${missionDetails}</textarea>
                     <p>Status: ${capitalizeFirstLetter(missionStatus)}</p>
@@ -211,6 +218,8 @@
                 document.getElementById('missionDetails').value = '';
                 document.getElementById('missionLocation').value = '';
                 document.getElementById('missionCommander').value = '';
+                document.getElementById('missionDuration').value = '';
+                document.getElementById('missionObjectives').value = '';
                 document.getElementById('missionStatus').value = 'in-progress';
 
                 // Add edit functionality
@@ -219,22 +228,36 @@
                     const newMissionName = prompt('Enter new mission name:', missionName);
                     const newMissionLocation = prompt('Enter new mission location:', missionLocation);
                     const newMissionCommander = prompt('Enter new commander name:', missionCommander);
+                    const newMissionDuration = prompt('Enter new estimated duration (hours):', missionDuration);
+                    const newMissionObjectives = prompt('Enter new mission objectives (comma-separated):', missionObjectives);
                     const newMissionDetails = prompt('Enter new mission details:', missionDetails);
                     const newStatus = prompt('Enter new status (in-progress, failed, completed):', missionStatus);
-                    
+
                     if (newMissionName) {
-                        card.querySelector('h3').innerText = newMissionName;
+                        missionName = newMissionName;
+                        card.querySelector('h3').innerText = missionName;
                     }
                     if (newMissionLocation) {
-                        card.querySelector('p:nth-of-type(1)').innerHTML = `<strong>Location:</strong> ${newMissionLocation}`;
+                        missionLocation = newMissionLocation;
+                        card.querySelector('p:nth-child(2)').innerHTML = `<strong>Location:</strong> ${missionLocation}`;
                     }
                     if (newMissionCommander) {
-                        card.querySelector('p:nth-of-type(2)').innerHTML = `<strong>Commander:</strong> ${newMissionCommander}`;
+                        missionCommander = newMissionCommander;
+                        card.querySelector('p:nth-child(3)').innerHTML = `<strong>Commander:</strong> ${missionCommander}`;
+                    }
+                    if (newMissionDuration) {
+                        missionDuration = newMissionDuration;
+                        card.querySelector('p:nth-child(4)').innerHTML = `<strong>Duration:</strong> ${missionDuration} hours`;
+                    }
+                    if (newMissionObjectives) {
+                        missionObjectives = newMissionObjectives;
+                        card.querySelector('p:nth-child(5)').innerHTML = `<strong>Objectives:</strong> ${missionObjectives}`;
                     }
                     if (newMissionDetails) {
-                        card.querySelector('textarea').innerText = newMissionDetails;
+                        missionDetails = newMissionDetails;
+                        card.querySelector('textarea').innerText = missionDetails;
                     }
-                    if (newStatus) {
+                    if (newStatus && ['in-progress', 'failed', 'completed'].includes(newStatus)) {
                         card.classList.remove(missionStatus);
                         card.classList.add(newStatus);
                         card.querySelector('p:last-child').innerText = `Status: ${capitalizeFirstLetter(newStatus)}`;
