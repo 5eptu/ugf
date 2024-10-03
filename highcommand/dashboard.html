@@ -48,11 +48,19 @@
         }
 
         input[type="text"], select, textarea {
-            padding: 8px;
+            padding: 10px;
             margin: 5px 0;
-            width: 100%; /* Full width */
+            width: calc(100% - 20px); /* Full width with padding */
             border: 1px solid #ccc;
             border-radius: 5px;
+            background-color: #1e1e1e; /* Darker background for inputs */
+            color: #fff;
+            font-size: 1em;
+            transition: border 0.3s;
+        }
+
+        input[type="text"]:focus, select:focus, textarea:focus {
+            border: 2px solid #ff4c4c; /* Highlight border on focus */
         }
 
         button {
@@ -63,6 +71,7 @@
             color: white;
             cursor: pointer;
             transition: background-color 0.3s;
+            font-size: 1em;
         }
 
         button:hover {
@@ -220,44 +229,37 @@
                 document.getElementById('missionCommander').value = '';
                 document.getElementById('missionDuration').value = '';
                 document.getElementById('missionObjectives').value = '';
-                document.getElementById('missionStatus').value = 'in-progress';
+                document.getElementById('missionStatus').value = 'in-progress'; // Reset status to default
 
-                // Add edit functionality
+                // Edit button functionality
                 const editBtn = card.querySelector('.editBtn');
                 editBtn.addEventListener('click', function() {
-                    const newMissionName = prompt('Enter new mission name:', missionName);
-                    const newMissionLocation = prompt('Enter new mission location:', missionLocation);
-                    const newMissionCommander = prompt('Enter new commander name:', missionCommander);
-                    const newMissionDuration = prompt('Enter new estimated duration (hours):', missionDuration);
-                    const newMissionObjectives = prompt('Enter new mission objectives (comma-separated):', missionObjectives);
-                    const newMissionDetails = prompt('Enter new mission details:', missionDetails);
-                    const newStatus = prompt('Enter new status (in-progress, failed, completed):', missionStatus);
+                    const newMissionName = prompt('Enter new mission name:', missionName) || missionName;
+                    const newMissionLocation = prompt('Enter new mission location:', missionLocation) || missionLocation;
+                    const newMissionCommander = prompt('Enter new commander name:', missionCommander) || missionCommander;
+                    const newMissionDuration = prompt('Enter new estimated duration (hours):', missionDuration) || missionDuration;
+                    const newMissionObjectives = prompt('Enter new mission objectives (comma-separated):', missionObjectives) || missionObjectives;
+                    const newMissionDetails = prompt('Enter new mission details:', missionDetails) || missionDetails;
+                    const newStatus = prompt('Enter new status (in-progress, failed, completed):', missionStatus) || missionStatus;
 
-                    if (newMissionName) {
-                        missionName = newMissionName;
-                        card.querySelector('h3').innerText = missionName;
-                    }
-                    if (newMissionLocation) {
-                        missionLocation = newMissionLocation;
-                        card.querySelector('p:nth-child(2)').innerHTML = `<strong>Location:</strong> ${missionLocation}`;
-                    }
-                    if (newMissionCommander) {
-                        missionCommander = newMissionCommander;
-                        card.querySelector('p:nth-child(3)').innerHTML = `<strong>Commander:</strong> ${missionCommander}`;
-                    }
-                    if (newMissionDuration) {
-                        missionDuration = newMissionDuration;
-                        card.querySelector('p:nth-child(4)').innerHTML = `<strong>Duration:</strong> ${missionDuration} hours`;
-                    }
-                    if (newMissionObjectives) {
-                        missionObjectives = newMissionObjectives;
-                        card.querySelector('p:nth-child(5)').innerHTML = `<strong>Objectives:</strong> ${missionObjectives}`;
-                    }
-                    if (newMissionDetails) {
-                        missionDetails = newMissionDetails;
-                        card.querySelector('textarea').innerText = missionDetails;
-                    }
-                    if (newStatus && ['in-progress', 'failed', 'completed'].includes(newStatus)) {
+                    // Update the card with new values
+                    missionName = newMissionName;
+                    missionLocation = newMissionLocation;
+                    missionCommander = newMissionCommander;
+                    missionDuration = newMissionDuration;
+                    missionObjectives = newMissionObjectives;
+                    missionDetails = newMissionDetails;
+
+                    // Update the card elements
+                    card.querySelector('h3').innerText = missionName;
+                    card.querySelector('p:nth-child(2)').innerHTML = `<strong>Location:</strong> ${missionLocation}`;
+                    card.querySelector('p:nth-child(3)').innerHTML = `<strong>Commander:</strong> ${missionCommander}`;
+                    card.querySelector('p:nth-child(4)').innerHTML = `<strong>Duration:</strong> ${missionDuration} hours`;
+                    card.querySelector('p:nth-child(5)').innerHTML = `<strong>Objectives:</strong> ${missionObjectives}`;
+                    card.querySelector('textarea').innerText = missionDetails;
+
+                    // Update status if changed
+                    if (['in-progress', 'failed', 'completed'].includes(newStatus)) {
                         card.classList.remove(missionStatus);
                         card.classList.add(newStatus);
                         card.querySelector('p:last-child').innerText = `Status: ${capitalizeFirstLetter(newStatus)}`;
