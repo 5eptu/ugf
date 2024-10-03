@@ -1,6 +1,6 @@
-// highcommand/api/missions.js
+// api/missions.js
 
-let missions = []; // This array will hold the mission data
+let missions = []; // This will hold the mission data
 
 export default function handler(req, res) {
     if (req.method === 'GET') {
@@ -9,14 +9,7 @@ export default function handler(req, res) {
     } else if (req.method === 'POST') {
         // Add a new mission
         const newMission = req.body; // Get the mission data from the request
-        
-        // Check if required fields are present
-        if (!newMission.name || !newMission.description || !newMission.status) {
-            return res.status(400).json({ message: 'Name, description, and status are required.' });
-        }
-        
-        // Push the new mission into the missions array
-        missions.push(newMission); 
+        missions.push(newMission); // Add it to the missions array
         res.status(201).json(newMission); // Respond with the new mission
     } else {
         // Method not allowed
