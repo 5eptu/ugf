@@ -19,6 +19,12 @@
             color: white;
         }
 
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 150px; /* Adjust size as needed */
+        }
+
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -31,13 +37,13 @@
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 0 5px rgba(255, 76, 76, 0.5);
-            transition: transform 0.2s;
+            transition: transform 0.2s, background-color 0.2s;
             color: white;
-            position: relative; /* For pseudo-elements if needed */
         }
 
         .card:hover {
             transform: scale(1.05); /* Slightly scale up the card on hover */
+            background-color: #444; /* Change background on hover */
         }
 
         .in-progress {
@@ -71,35 +77,99 @@
                 box-shadow: 0 0 20px rgba(255, 76, 76, 0.7), 0 0 30px rgba(255, 76, 76, 0.5);
             }
         }
+
+        .form-container {
+            margin: 20px auto;
+            text-align: center;
+            background-color: #2b2b2b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(255, 76, 76, 0.5);
+        }
+
+        input[type="text"], select {
+            padding: 10px;
+            margin: 10px 0;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff4c4c;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d93d3d; /* Darker red on hover */
+        }
     </style>
 </head>
 <body>
     <h1>High Command Dashboard</h1>
-    <div class="dashboard-grid">
-        <div class="card in-progress">
-            <h3>Mission Alpha</h3>
-            <p>Status: In Progress</p>
-        </div>
-        <div class="card failed">
-            <h3>Mission Beta</h3>
-            <p>Status: Failed</p>
-        </div>
-        <div class="card completed">
-            <h3>Mission Gamma</h3>
-            <p>Status: Completed</p>
-        </div>
-        <div class="card in-progress">
-            <h3>Mission Delta</h3>
-            <p>Status: In Progress</p>
-        </div>
-        <div class="card failed">
-            <h3>Mission Epsilon</h3>
-            <p>Status: Failed</p>
-        </div>
-        <div class="card completed">
-            <h3>Mission Zeta</h3>
-            <p>Status: Completed</p>
-        </div>
+    <img src="https://i.imgur.com/Gn60P1H.png" alt="United Federation Logo" class="logo">
+
+    <div class="form-container">
+        <h2>Add New Mission</h2>
+        <input type="text" id="missionName" placeholder="Mission Name">
+        <select id="missionStatus">
+            <option value="in-progress">In Progress</option>
+            <option value="failed">Failed</option>
+            <option value="completed">Completed</option>
+        </select>
+        <button id="addMissionBtn">Add Mission</button>
     </div>
+
+    <div class="dashboard-grid" id="missionList">
+        <!-- Mission cards will be dynamically added here -->
+    </div>
+
+    <script>
+        const addMissionBtn = document.getElementById('addMissionBtn');
+        const missionList = document.getElementById('missionList');
+
+        addMissionBtn.addEventListener('click', function() {
+            const missionName = document.getElementById('missionName').value;
+            const missionStatus = document.getElementById('missionStatus').value;
+
+            if (missionName) {
+                const card = document.createElement('div');
+                card.className = `card ${missionStatus}`;
+                card.innerHTML = `
+                    <h3>${missionName}</h3>
+                    <p>Status: ${capitalizeFirstLetter(missionStatus)}</p>
+                    <button class="editBtn">Edit</button>
+                `;
+
+                missionList.appendChild(card);
+
+                // Clear input fields
+                document.getElementById('missionName').value = '';
+                document.getElementById('missionStatus').value = 'in-progress';
+
+                // Add edit functionality
+                const editBtn = card.querySelector('.editBtn');
+                editBtn.addEventListener('click', function() {
+                    const newStatus = prompt('Enter new status (in-progress, failed, completed):', missionStatus);
+                    if (newStatus && ['in-progress', 'failed', 'completed'].includes(newStatus)) {
+                        card.className = `card ${newStatus}`;
+                        card.querySelector('p').innerHTML = `Status: ${capitalizeFirstLetter(newStatus)}`;
+                    } else {
+                        alert('Invalid status. Please enter a valid status.');
+                    }
+                });
+            } else {
+                alert('Please enter a mission name.');
+            }
+        });
+
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+    </script>
 </body>
 </html>
