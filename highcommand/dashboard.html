@@ -17,7 +17,7 @@
         h1 {
             text-align: center;
             color: #ff4c4c;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .logo {
@@ -28,7 +28,7 @@
 
         .dashboard-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .mission-description {
@@ -38,18 +38,18 @@
         }
 
         .form-container {
-            margin: 20px auto;
+            margin: 10px auto;
             text-align: center;
             background-color: #2b2b2b;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 0 5px rgba(255, 76, 76, 0.5);
         }
 
-        input[type="text"], select {
-            padding: 10px;
-            margin: 10px 0;
-            width: 80%;
+        input[type="text"], select, textarea {
+            padding: 8px;
+            margin: 5px 0;
+            width: 90%;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
@@ -70,24 +70,30 @@
 
         .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
             margin-top: 20px;
         }
 
         .card {
             background-color: #2b2b2b;
             border-radius: 10px;
-            padding: 20px;
+            padding: 15px;
             box-shadow: 0 0 5px rgba(255, 76, 76, 0.5);
             transition: transform 0.2s, background-color 0.2s;
             color: white;
             position: relative;
+            overflow: hidden;
+            text-align: left;
         }
 
-        .card:hover {
-            transform: scale(1.05); /* Slightly scale up the card on hover */
-            background-color: #444; /* Change background on hover */
+        .card h3 {
+            margin: 5px 0;
+        }
+
+        .card p {
+            margin: 5px 0;
+            font-size: 0.9em;
         }
 
         .in-progress {
@@ -136,6 +142,7 @@
     <div class="form-container">
         <h2>Add New Mission</h2>
         <input type="text" id="missionName" placeholder="Mission Name" required>
+        <textarea id="missionDetails" placeholder="Mission Details" rows="3"></textarea>
         <select id="missionStatus">
             <option value="in-progress">In Progress</option>
             <option value="failed">Failed</option>
@@ -154,6 +161,7 @@
 
         addMissionBtn.addEventListener('click', function() {
             const missionName = document.getElementById('missionName').value;
+            const missionDetails = document.getElementById('missionDetails').value;
             const missionStatus = document.getElementById('missionStatus').value;
 
             if (missionName) {
@@ -161,6 +169,7 @@
                 card.className = `card ${missionStatus}`;
                 card.innerHTML = `
                     <h3>${missionName}</h3>
+                    <p><strong>Details:</strong> ${missionDetails}</p>
                     <p>Status: ${capitalizeFirstLetter(missionStatus)}</p>
                     <button class="editBtn">Edit</button>
                 `;
@@ -169,19 +178,24 @@
 
                 // Clear input fields
                 document.getElementById('missionName').value = '';
+                document.getElementById('missionDetails').value = '';
                 document.getElementById('missionStatus').value = 'in-progress';
 
                 // Add edit functionality
                 const editBtn = card.querySelector('.editBtn');
                 editBtn.addEventListener('click', function() {
                     const newMissionName = prompt('Enter new mission name:', missionName);
+                    const newMissionDetails = prompt('Enter new mission details:', missionDetails);
                     const newStatus = prompt('Enter new status (in-progress, failed, completed):', missionStatus);
                     if (newMissionName) {
                         card.querySelector('h3').innerText = newMissionName;
                     }
+                    if (newMissionDetails) {
+                        card.querySelector('p:nth-of-type(1)').innerHTML = `<strong>Details:</strong> ${newMissionDetails}`;
+                    }
                     if (newStatus && ['in-progress', 'failed', 'completed'].includes(newStatus)) {
                         card.className = `card ${newStatus}`;
-                        card.querySelector('p').innerHTML = `Status: ${capitalizeFirstLetter(newStatus)}`;
+                        card.querySelector('p:last-of-type').innerHTML = `Status: ${capitalizeFirstLetter(newStatus)}`;
                     } else {
                         alert('Invalid status. Please enter a valid status.');
                     }
