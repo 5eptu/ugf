@@ -21,7 +21,7 @@
             justify-content: space-between;
             padding: 20px;
             background-color: #0f0f0f;
-            border-bottom: 2px solid #00ff99;
+            border-bottom: 2px solid #ff4c4c;
         }
 
         .header img {
@@ -30,7 +30,7 @@
         }
 
         .header h1 {
-            color: #00ff99;
+            color: #ff4c4c;
             font-size: 36px;
             margin: 0;
         }
@@ -44,13 +44,13 @@
 
         .nav a {
             text-decoration: none;
-            color: #00ff99;
+            color: #ff4c4c;
             margin: 0 20px;
             font-size: 18px;
         }
 
         .nav a:hover {
-            color: #00cc7a;
+            color: #ff9999;
         }
 
         .container {
@@ -59,7 +59,7 @@
         }
 
         h2 {
-            color: #00ff99;
+            color: #ff4c4c;
             font-size: 28px;
             margin-bottom: 20px;
         }
@@ -73,7 +73,7 @@
 
         .card {
             background-color: #2b2b2b;
-            border: 2px solid #00ff99;
+            border: 2px solid #ff4c4c;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
@@ -81,16 +81,20 @@
         }
 
         .card:hover {
-            background-color: #00ff99;
+            background-color: #ff4c4c;
             color: #1c1c1c;
             transform: translateY(-10px);
+        }
+
+        .card:hover h4, .card:hover p {
+            color: #1c1c1c;
         }
 
         footer {
             margin-top: 50px;
             padding: 20px;
             text-align: center;
-            color: #00ff99;
+            color: #ff4c4c;
             background-color: #181818;
         }
 
@@ -99,7 +103,7 @@
             width: 100%;
             padding: 10px;
             margin-top: 10px;
-            border: 1px solid #00ff99;
+            border: 1px solid #ff4c4c;
             background-color: #1c1c1c;
             color: #f0f0f0;
             border-radius: 5px;
@@ -107,14 +111,15 @@
 
         button {
             padding: 10px 20px;
-            background-color: #00ff99;
+            background-color: #ff4c4c;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            color: #f0f0f0;
         }
 
         button:hover {
-            background-color: #00cc7a;
+            background-color: #ff9999;
         }
 
         #missionList, #meetingList {
@@ -188,10 +193,11 @@
         United Federation © 2024 - All Rights Reserved
     </footer>
 
-    <!-- Script for managing missions and meetings -->
+    <!-- Script for managing missions and meetings with local storage -->
     <script>
-        // Array to hold mission data
-        let missions = [];
+        // Initialize missions and meetings from local storage
+        let missions = JSON.parse(localStorage.getItem('missions')) || [];
+        let meetings = JSON.parse(localStorage.getItem('meetings')) || [];
 
         // Function to show the mission form
         function showMissionForm() {
@@ -210,9 +216,9 @@
                     description: missionDescription,
                     status: missionStatus
                 });
+                saveData();
                 renderMissions();
-                document.getElementById('missionForm').reset();
-                document.getElementById('missionForm').style.display = 'none';
+                clearMissionForm();
             }
         }
 
@@ -222,14 +228,7 @@
             missionList.innerHTML = ''; // Clear previous missions
 
             missions.forEach((mission, index) => {
-                let statusColor = '';
-                if (mission.status === 'in-progress') {
-                    statusColor = '#00ff99'; // Green for in progress
-                } else if (mission.status === 'completed') {
-                    statusColor = '#00cc7a'; // Darker green for completed
-                } else if (mission.status === 'failed') {
-                    statusColor = '#ff4c4c'; // Red for failed
-                }
+                let statusColor = getStatusColor(mission.status);
 
                 missionList.innerHTML += `
                     <div style="margin-bottom: 15px; padding: 10px; border: 2px solid ${statusColor}; border-radius: 5px;">
@@ -242,8 +241,12 @@
             });
         }
 
-        // Array to hold meeting data
-        let meetings = [];
+        // Function to get color based on status
+        function getStatusColor(status) {
+            if (status === 'in-progress') return '#ff4c4c'; // Red for in progress
+            if (status === 'completed') return '#4cff4c'; // Green for completed
+            if (status === 'failed') return '#ff4c4c'; // Red for failed
+        }
 
         // Function to show the meeting form
         function showMeetingForm() {
@@ -254,17 +257,17 @@
         function addMeeting() {
             const meetingTitle = document.getElementById('meetingTitle').value;
             const meetingAgenda = document.getElementById('meetingAgenda').value;
-            const meetingTime = document.getElementById('meetingTime').value;
+            const meetingTime = new Date(document.getElementById('meetingTime').value);
 
-            if (meetingTitle && meetingAgenda && meetingTime) {
+            if (meetingTitle && meetingAgenda) {
                 meetings.push({
                     title: meetingTitle,
                     agenda: meetingAgenda,
-                    time: new Date(meetingTime)
+                    time: meetingTime
                 });
+                saveData();
                 renderMeetings();
-                document.getElementById('meetingForm').reset();
-                document.getElementById('meetingForm').style.display = 'none';
+                clearMeetingForm();
             }
         }
 
@@ -284,6 +287,59 @@
                 `;
             });
         }
+
+        // Function to edit a mission
+        function editMission(index) {
+            const mission = missions[index];
+            document.getElementById('missionName').value = mission.name;
+            document.getElementById('missionDescription').value = mission.description;
+            document.getElementById('missionStatus').value = mission.status;
+
+            // Remove the mission from the list to avoid duplicates
+            missions.splice(index, 1);
+            saveData();
+            renderMissions();
+        }
+
+        // Function to edit a meeting
+        function editMeeting(index) {
+            const meeting = meetings[index];
+            document.getElementById('meetingTitle').value = meeting.title;
+            document.getElementById('meetingAgenda').value = meeting.agenda;
+            document.getElementById('meetingTime').value = meeting.time.toISOString().slice(0, 16); // Set date/time value
+
+            // Remove the meeting from the list to avoid duplicates
+            meetings.splice(index, 1);
+            saveData();
+            renderMeetings();
+        }
+
+        // Function to save data to local storage
+        function saveData() {
+            localStorage.setItem('missions', JSON.stringify(missions));
+            localStorage.setItem('meetings', JSON.stringify(meetings));
+        }
+
+        // Function to clear mission form inputs
+        function clearMissionForm() {
+            document.getElementById('missionForm').style.display = 'none';
+            document.getElementById('missionName').value = '';
+            document.getElementById('missionDescription').value = '';
+            document.getElementById('missionStatus').value = 'in-progress';
+        }
+
+        // Function to clear meeting form inputs
+        function clearMeetingForm() {
+            document.getElementById('meetingForm').style.display = 'none';
+            document.getElementById('meetingTitle').value = '';
+            document.getElementById('meetingAgenda').value = '';
+            document.getElementById('meetingTime').value = '';
+        }
+
+        // Initial render on page load
+        renderMissions();
+        renderMeetings();
     </script>
 </body>
 </html>
+
