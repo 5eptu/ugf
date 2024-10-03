@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>United Federation Access</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #121212;
+            color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #00ff99;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #1e1e1e;
+        }
+        input[type="password"] {
+            padding: 10px;
+            width: 200px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #00ff99;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #1e1e1e;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #00cc7a;
+        }
+        h1 {
+            color: #00ff99;
+        }
+        .error {
+            color: #ff4c4c;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>United Federation</h1>
+        <p>High Command Access Only</p>
+        <form id="loginForm" action="dashboard.html" method="post" onsubmit="return checkPassword()">
+            <input type="password" id="password" placeholder="Enter Password" required>
+            <input type="submit" value="Access Command Center">
+        </form>
+        <p id="errorMessage" class="error" style="display:none;">Incorrect Password</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const correctPassword = 'HighCommandAccess';
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (password === correctPassword) {
+                return true; // Allow form submission
+            } else {
+                errorMessage.style.display = 'block'; // Show error message
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+</body>
+</html>
