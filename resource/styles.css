@@ -1,0 +1,146 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #101010; /* Dark background for sci-fi look */
+    color: #ffffff; /* White text for contrast */
+    line-height: 1.6; /* Improve readability */
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #d50000, #ff3030); /* Gradient red background */
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+nav {
+    margin-top: 15px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav ul li a:hover {
+    color: #ff3030;
+    border-bottom: 2px solid #ff3030; /* Underline effect on hover */
+}
+
+/* Logo Styles */
+header img {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 60px; /* Adjust logo size */
+    height: auto;
+}
+
+/* Main Section Styles */
+main {
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #202020; /* Slightly lighter background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+/* Section Styles */
+section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ff3030; /* Border for sections */
+    border-radius: 5px;
+    background-color: #181818; /* Darker section background */
+    transition: background-color 0.3s;
+}
+
+section:hover {
+    background-color: #222; /* Highlight section on hover */
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #ff3030; /* Red color for section titles */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+ol, ul {
+    margin: 20px 0;
+    padding-left: 20px; /* Indent lists for clarity */
+}
+
+li {
+    margin-bottom: 10px;
+    font-size: 1.1rem; /* Slightly larger text for list items */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #101010;
+    color: #ffffff;
+    border-top: 2px solid #ff3030; /* Top border for footer */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem; /* Smaller title on mobile */
+    }
+
+    nav ul li {
+        display: block; /* Stack navigation items on mobile */
+        margin: 10px 0;
+    }
+
+    main {
+        padding: 20px; /* Adjust padding for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    header img {
+        width: 40px; /* Smaller logo on mobile */
+    }
+
+    h2 {
+        font-size: 1.8rem; /* Smaller section titles on mobile */
+    }
+
+    li {
+        font-size: 1rem; /* Smaller list items on mobile */
+    }
+}
