@@ -11,6 +11,7 @@ body {
     background-color: #101010; /* Dark background for sci-fi look */
     color: #ffffff; /* White text for contrast */
     line-height: 1.6; /* Improve readability */
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Header Styles */
@@ -19,12 +20,14 @@ header {
     padding: 20px;
     text-align: center;
     position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
 }
 
 header h1 {
     font-size: 3rem;
     font-weight: bold;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    letter-spacing: 1px; /* Increase letter spacing for aesthetics */
 }
 
 nav {
@@ -33,6 +36,7 @@ nav {
 
 nav ul {
     list-style: none;
+    padding: 0; /* Remove default padding */
 }
 
 nav ul li {
@@ -46,6 +50,7 @@ nav ul li a {
     font-size: 1.2rem;
     position: relative;
     padding-bottom: 5px;
+    transition: color 0.3s, border-bottom 0.3s; /* Smooth transitions */
 }
 
 nav ul li a:hover {
@@ -60,6 +65,7 @@ header img {
     left: 20px;
     width: 60px; /* Adjust logo size */
     height: auto;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.7)); /* Drop shadow for logo */
 }
 
 /* Main Section Styles */
@@ -70,6 +76,7 @@ main {
     background-color: #202020; /* Slightly lighter background for contrast */
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    transition: background-color 0.3s; /* Smooth transition on hover */
 }
 
 /* Section Styles */
@@ -79,11 +86,12 @@ section {
     border: 1px solid #ff3030; /* Border for sections */
     border-radius: 5px;
     background-color: #181818; /* Darker section background */
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s; /* Add transitions */
 }
 
 section:hover {
     background-color: #222; /* Highlight section on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
 }
 
 h2 {
@@ -91,16 +99,28 @@ h2 {
     margin-bottom: 15px;
     color: #ff3030; /* Red color for section titles */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    border-bottom: 2px solid #d50000; /* Bottom border for titles */
+    padding-bottom: 10px; /* Spacing below title */
 }
 
 ol, ul {
     margin: 20px 0;
     padding-left: 20px; /* Indent lists for clarity */
+    list-style-position: inside; /* Ensure list items stay in line */
 }
 
 li {
     margin-bottom: 10px;
     font-size: 1.1rem; /* Slightly larger text for list items */
+    position: relative;
+    padding-left: 1.5em; /* Add padding to the left for bullet points */
+}
+
+li:before {
+    content: "✔"; /* Custom bullet point */
+    color: #ff3030; /* Red bullet point */
+    position: absolute;
+    left: 0; /* Position it on the left */
 }
 
 /* Footer Styles */
@@ -113,6 +133,24 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+    font-size: 0.9rem; /* Smaller font size for footer */
+}
+
+/* Button Styles */
+button {
+    background-color: #d50000; /* Red background for buttons */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transition effects */
+}
+
+button:hover {
+    background-color: #ff3030; /* Darker red on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
 }
 
 /* Responsive Styles */
@@ -143,4 +181,19 @@ footer {
     li {
         font-size: 1rem; /* Smaller list items on mobile */
     }
+
+    button {
+        width: 100%; /* Full-width buttons on mobile */
+    }
+}
+
+/* Miscellaneous Styles */
+a {
+    color: #ff3030; /* Link color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth transition for links */
+}
+
+a:hover {
+    color: #ffffff; /* Change link color on hover */
 }
