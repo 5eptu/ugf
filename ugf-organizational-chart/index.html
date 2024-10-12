@@ -1,1 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGF Organizational Chart</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+</head>
+<body>
+    <div class="org-chart">
+        <h1>UGF High Command</h1>
+        <div class="high-command">
+            <h2>High Command</h2>
+            <div class="general">
+                <span class="rank" onclick="fetchMemberInfo('GeneralUser1')">General: GeneralUser1</span>
+                <span class="rank" onclick="fetchMemberInfo('GeneralUser2')">General: GeneralUser2</span>
+                <span class="rank" onclick="fetchMemberInfo('GeneralUser3')">General: GeneralUser3</span>
+                <span class="rank" onclick="fetchMemberInfo('GeneralUser4')">General: GeneralUser4</span>
+                <span class="rank" onclick="fetchMemberInfo('GeneralUser5')">General: GeneralUser5</span>
+                <span class="rank" onclick="fetchMemberInfo('GeneralUser6')">General: GeneralUser6</span>
+                <span class="rank" onclick="fetchMemberInfo('GeneralUser7')">General: GeneralUser7</span>
+                <span class="rank" onclick="fetchMemberInfo('GeneralUser8')">General: GeneralUser8</span>
+            </div>
+        </div>
+        
+        <h2>Companies</h2>
+        <div class="company">
+            <h3>Company 1</h3>
+            <div class="command">
+                <span class="rank" onclick="fetchMemberInfo('CaptainUser1')">Captain: CaptainUser1</span>
+                <span class="rank" onclick="fetchMemberInfo('LieutenantUser1')">Lieutenant: LieutenantUser1</span>
+                <span class="rank" onclick="fetchMemberInfo('SergeantMajorUser1')">Sergeant Major: SergeantMajorUser1</span>
+            </div>
+            <div class="platoon">
+                <h4>Platoon 1</h4>
+                <div class="squad">
+                    <span class="rank" onclick="fetchMemberInfo('Sergeant1User')">Sergeant: Sergeant1User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Corporal1User')">Corporal: Corporal1User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Member1User')">Squad Member: Member1User</span>
+                </div>
+            </div>
+            <div class="platoon">
+                <h4>Platoon 2</h4>
+                <div class="squad">
+                    <span class="rank" onclick="fetchMemberInfo('Sergeant2User')">Sergeant: Sergeant2User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Corporal2User')">Corporal: Corporal2User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Member2User')">Squad Member: Member2User</span>
+                </div>
+            </div>
+            <div class="platoon">
+                <h4>Platoon 3</h4>
+                <div class="squad">
+                    <span class="rank" onclick="fetchMemberInfo('Sergeant3User')">Sergeant: Sergeant3User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Corporal3User')">Corporal: Corporal3User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Member3User')">Squad Member: Member3User</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="company">
+            <h3>Company 2</h3>
+            <div class="command">
+                <span class="rank" onclick="fetchMemberInfo('CaptainUser2')">Captain: CaptainUser2</span>
+                <span class="rank" onclick="fetchMemberInfo('LieutenantUser2')">Lieutenant: LieutenantUser2</span>
+                <span class="rank" onclick="fetchMemberInfo('SergeantMajorUser2')">Sergeant Major: SergeantMajorUser2</span>
+            </div>
+            <div class="platoon">
+                <h4>Platoon 1</h4>
+                <div class="squad">
+                    <span class="rank" onclick="fetchMemberInfo('Sergeant4User')">Sergeant: Sergeant4User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Corporal4User')">Corporal: Corporal4User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Member4User')">Squad Member: Member4User</span>
+                </div>
+            </div>
+            <div class="platoon">
+                <h4>Platoon 2</h4>
+                <div class="squad">
+                    <span class="rank" onclick="fetchMemberInfo('Sergeant5User')">Sergeant: Sergeant5User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Corporal5User')">Corporal: Corporal5User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Member5User')">Squad Member: Member5User</span>
+                </div>
+            </div>
+            <div class="platoon">
+                <h4>Platoon 3</h4>
+                <div class="squad">
+                    <span class="rank" onclick="fetchMemberInfo('Sergeant6User')">Sergeant: Sergeant6User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Corporal6User')">Corporal: Corporal6User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Member6User')">Squad Member: Member6User</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="company">
+            <h3>Company 3</h3>
+            <div class="command">
+                <span class="rank" onclick="fetchMemberInfo('CaptainUser3')">Captain: CaptainUser3</span>
+                <span class="rank" onclick="fetchMemberInfo('LieutenantUser3')">Lieutenant: LieutenantUser3</span>
+                <span class="rank" onclick="fetchMemberInfo('SergeantMajorUser3')">Sergeant Major: SergeantMajorUser3</span>
+            </div>
+            <div class="platoon">
+                <h4>Platoon 1</h4>
+                <div class="squad">
+                    <span class="rank" onclick="fetchMemberInfo('Sergeant7User')">Sergeant: Sergeant7User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Corporal7User')">Corporal: Corporal7User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Member7User')">Squad Member: Member7User</span>
+                </div>
+            </div>
+            <div class="platoon">
+                <h4>Platoon 2</h4>
+                <div class="squad">
+                    <span class="rank" onclick="fetchMemberInfo('Sergeant8User')">Sergeant: Sergeant8User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Corporal8User')">Corporal: Corporal8User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Member8User')">Squad Member: Member8User</span>
+                </div>
+            </div>
+            <div class="platoon">
+                <h4>Platoon 3</h4>
+                <div class="squad">
+                    <span class="rank" onclick="fetchMemberInfo('Sergeant9User')">Sergeant: Sergeant9User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Corporal9User')">Corporal: Corporal9User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Member9User')">Squad Member: Member9User</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="company">
+            <h3>Company 4</h3>
+            <div class="command">
+                <span class="rank" onclick="fetchMemberInfo('CaptainUser4')">Captain: CaptainUser4</span>
+                <span class="rank" onclick="fetchMemberInfo('LieutenantUser4')">Lieutenant: LieutenantUser4</span>
+                <span class="rank" onclick="fetchMemberInfo('SergeantMajorUser4')">Sergeant Major: SergeantMajorUser4</span>
+            </div>
+            <div class="platoon">
+                <h4>Platoon 1</h4>
+                <div class="squad">
+                    <span class="rank" onclick="fetchMemberInfo('Sergeant10User')">Sergeant: Sergeant10User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Corporal10User')">Corporal: Corporal10User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Member10User')">Squad Member: Member10User</span>
+                </div>
+            </div>
+            <div class="platoon">
+                <h4>Platoon 2</h4>
+                <div class="squad">
+                    <span class="rank" onclick="fetchMemberInfo('Sergeant11User')">Sergeant: Sergeant11User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Corporal11User')">Corporal: Corporal11User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Member11User')">Squad Member: Member11User</span>
+                </div>
+            </div>
+            <div class="platoon">
+                <h4>Platoon 3</h4>
+                <div class="squad">
+                    <span class="rank" onclick="fetchMemberInfo('Sergeant12User')">Sergeant: Sergeant12User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Corporal12User')">Corporal: Corporal12User</span>
+                    <span class="rank" onclick="fetchMemberInfo('Member12User')">Squad Member: Member12User</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to JavaScript -->
+</body>
+</html>
 
